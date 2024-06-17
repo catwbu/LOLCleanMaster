@@ -1,0 +1,10 @@
+::forfiles /p d: /s /m "League of Legends.exe" /c "cmd /c echo @file">a.txt
+::forfiles /p %com%: /s /m "*_LeagueClient*.log" /c "cmd /c del /f /s /q @path"
+::forfiles /p %com%: /s /m "*_r3dlog.txt" /c "cmd /c del /f /s /q @path"
+::forfiles /p %com%: /s /m "*_netlog.txt" /c "cmd /c del /f /s /q @path"
+::dir /c /b /s "%com%:\LeagueClient Logs">%x%
+::dir /c /b /s "%com%:\Maestro Logs">%x%
+::dir /c /b /s "%com%:\Network Logs">%x%
+::dir /c /b /s "%com%:\Performance Logs">%x%
+::dir /c /b /s "%com%:\Game - R3d Logs">%x%
+for /f "delims=ms tokens=1" %%i in ('ping 203.133.9.26 -n 10') do set Total=%%i
